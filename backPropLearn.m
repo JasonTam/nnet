@@ -1,4 +1,4 @@
-function [ W ] = backPropLearn( init, train,...
+function [ NN ] = backPropLearn( init, train,...
     n_epochs, alpha )
 %BACKPROPLEARN Summary of this function goes here
 %   Back propagation learning
@@ -46,6 +46,8 @@ for epoch = 1:n_epochs
     
 end
 
+NN.n = init.n;
+NN.W = W;
 
 end
 

@@ -4,7 +4,7 @@ function [ output_args ] = writeNNtoFile( fPath, NN )
 
 fID = fopen('fPath','w');
 
-fprintf(fID,'%d %d %d',NN(1,:));
+fprintf(fID,'%d %d %d',NN.n);
 fprintf(fID,'%6.2f %12.8f\n',A);
 fclose(fID);
 

@@ -7,6 +7,6 @@ init = parseInit(initPath);
 train = parseTrain(trainPath);
 
 tic
-NN_trained = backPropLearn(init,train,100,0.1);
+NN = backPropLearn(init,train,1,0.1);
 toc
 
