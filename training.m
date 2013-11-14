@@ -3,7 +3,7 @@
 initPath = './data/WDBC/sample.NNWDBC.init';
 trainPath = './data/WDBC/wdbc.train';
 
-init = parseInit(initPath);
+init = parseNN(initPath);
 train = parseTrain(trainPath);
 
 n_epochs = 100;

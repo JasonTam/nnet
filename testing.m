@@ -3,8 +3,8 @@
 nnPath = './lol.txt';
 testPath = './data/WDBC/wdbc.train';
 
-init = parseInit(initPath);
-train = parseTrain(trainPath);
+NN = parseNN(nnPath);
+test = parseTest(trainPath);
 
 n_epochs = 100;
 alpha = 0.1;
