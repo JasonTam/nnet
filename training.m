@@ -12,6 +12,6 @@ tic
 NN = backPropLearn(init,train,n_epochs,alpha);
 toc
 
-
-
 writeNNtoFile('./lol.txt',NN);
+
+
