@@ -18,10 +18,10 @@ fclose(fID);
 
 % The neural net is stored as a cell array
 % cells correspond to edge weights from one layer to the next
-% This NN has 2 cells because it has only 3 layers
-NN = cell(1,2);
-NN{1} = W_ih; NN{2} = W_ho;
+% This W has 2 cells because it has only 3 layers
+W = cell(1,2);
+W{1} = W_ih; W{2} = W_ho;
 
-init.n=n; init.NN=NN;
+init.n=n; init.W=W;
 
 end
