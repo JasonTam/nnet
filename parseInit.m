@@ -9,7 +9,7 @@ end
 
 fID = fopen(fPath);
 % [N_i N_h N_o]
-N = cell2mat(textscan(fID,'%d %d %d',1));
+N = cell2mat(textscan(fID,'%d',1));
 fspec_ih = repmat('%f ',[1 N(1)+1]);
 W_ih = cell2mat(textscan(fID,fspec_ih,N(2)));
 fspec_ho = repmat('%f ',[1 N(2)+1]);
