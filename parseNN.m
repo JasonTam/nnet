@@ -1,4 +1,4 @@
-function init = parseInit(fPath)
+function init = parseNN(fPath)
 % Parses a initialization file for 
 % The number of input, hidden, and output nodes
 % Initlial weights for each edge
