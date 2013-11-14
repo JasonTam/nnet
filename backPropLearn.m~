@@ -1,4 +1,4 @@
-function [ NN ] = backPropLearn( init, train,...
+function [ NN_trained ] = backPropLearn( init, train,...
     n_epochs, alpha )
 %BACKPROPLEARN Summary of this function goes here
 %   Back propagation learning
@@ -18,7 +18,6 @@ g_p = @(x) g(x).*(1-g(x));
 % (Skipping this because NN is already initialized)
 
 for epoch = 1:n_epochs
-    disp(epoch);
    for e = 1:train.n(1) % for each training example
        a{1} = train.features(e,:)';     % Input Features
        for l = 2:L        
@@ -31,20 +30,23 @@ for epoch = 1:n_epochs
         y = train.targets(e); % Target for this example
         delta{L} = g_p(in{L}).*(y-a{end});
 
-        for l = L-1:-1:2
+        for l = L-1:2
             % (2:end) because first weight is bias weight
             delta{l} = g_p(in{l}).*(NN{l}(2:end)*delta{l+1})';
         end
         
         % Update every weight in network using deltas
-        for l = 1:L-1
-            NN{l}(:,2:end) = NN{l}(:,2:end) + ...
-                alpha.*delta{l+1}*a{l}';
+        for l = 1:L
+            NN{l}(2:end) = NN{l}(2:end)
         end
         
    end
     
 end
+
+
+
+
 
 
 end
