@@ -10,12 +10,12 @@ end
 
 fID = fopen(fPath);
 % [N_e N_i N_o]
-N = cell2mat(textscan(fID,'%d %d %d',1));
-fspec = repmat('%f ',[1 N(2)+1]);
-A = cell2mat(textscan(fID,fspec,N(1)));
+n = cell2mat(textscan(fID,'%d %d %d',1));
+fspec = repmat('%f ',[1 n(2)+1]);
+A = cell2mat(textscan(fID,fspec,n(1)));
 fclose(fID);
 
 F = A(:,1:end-1); T = A(:,end);
-train.N=N; train.features=F; train.targets=T;
+train.n=n; train.features=F; train.targets=T;
 
 end

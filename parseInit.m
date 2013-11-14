@@ -9,13 +9,19 @@ end
 
 fID = fopen(fPath);
 % [N_i N_h N_o]
-N = cell2mat(textscan(fID,'%d %d %d',1));
-fspec_ih = repmat('%f ',[1 N(1)+1]);
-W_ih = cell2mat(textscan(fID,fspec_ih,N(2)));
-fspec_ho = repmat('%f ',[1 N(2)+1]);
-W_ho = cell2mat(textscan(fID,fspec_ho,N(3)));
+n = cell2mat(textscan(fID,'%d %d %d',1));
+fspec_ih = repmat('%f ',[1 n(1)+1]);
+W_ih = cell2mat(textscan(fID,fspec_ih,n(2)));
+fspec_ho = repmat('%f ',[1 n(2)+1]);
+W_ho = cell2mat(textscan(fID,fspec_ho,n(3)));
 fclose(fID);
 
-init.N=N; init.W_ih=W_ih; init.W_ho=W_ho;
+% The neural net is stored as a cell array
+% cells correspond to edge weights from one layer to the next
+% This NN has 2 cells because it has only 3 layers
+NN = cell(1,2);
+NN{1} = W_ih; NN{2} = W_ho;
+
+init.n=n; init.NN=NN;
 
 end
