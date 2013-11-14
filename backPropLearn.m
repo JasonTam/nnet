@@ -16,7 +16,7 @@ g_p = @(x) g(x).*(1-g(x));
 
 % Initialize weights
 % (Skipping this because W is already initialized)
-
+a = cell(1,L); in = cell(1,L); delta = cell(1,L);
 for epoch = 1:n_epochs
     disp(epoch);
    for e = 1:train.n(1) % for each training example
@@ -38,12 +38,10 @@ for epoch = 1:n_epochs
         
         % Update every weight in network using deltas
         for l = 1:L-1
-            W{l}(:,2:end) = W{l}(:,2:end) + ...
-                alpha.*delta{l+1}*a{l}';
+            W{l} = W{l} + ...
+                alpha.*delta{l+1}*[b; a{l}]';
         end
-        
    end
-    
 end
 
 NN.n = init.n;

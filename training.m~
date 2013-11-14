@@ -6,4 +6,12 @@ trainPath = './data/WDBC/wdbc.train';
 init = parseInit(initPath);
 train = parseTrain(trainPath);
 
-backPropLearn(init,train,)
+n_epochs = 1;
+alpha = 0.1;
+tic
+NN = backPropLearn(init,train,n_epochs,alpha);
+toc
+
+
+
+writeNNtoFile()
