@@ -28,12 +28,12 @@ for epoch = 1:n_epochs
        
 % Propagate deltas backward from output later to input later
 % in should be the last input
-        y = train.targets(e); % Target for this example
+        y = train.targets(e,:)'; % Target for this example
         delta{L} = g_p(in{L}).*(y-a{end});
 
         for l = L-1:-1:2
             % (2:end) because first weight is bias weight
-            delta{l} = g_p(in{l}).*(W{l}(2:end)*delta{l+1})';
+            delta{l} = g_p(in{l}).*(W{l}(:,2:end)'*delta{l+1});
         end
         
         % Update every weight in network using deltas

@@ -1,19 +1,16 @@
 % Jason Tam
+% Training script
 
 % initPath = './data/WDBC/sample.NNWDBC.init';
 % trainPath = './data/WDBC/wdbc.train';
+% outPath = './myOut/trainedNN_WDBC.txt';
+% n_epochs = 100; alpha = 0.1;
+
 initPath = './data/grades/sample.NNGrades.init';
 trainPath = './data/grades/grades.train';
+outPath = './myOut/trainedNN_grades.txt';
+n_epochs = 100; alpha = 0.05;
 
 
 
-init = parseNN(initPath);
-train = parseFeatures(trainPath);
-
-n_epochs = 100;
-alpha = 0.05;
-NN = backPropLearn(init,train,n_epochs,alpha);
-
-writeNNtoFile('./grades.txt',NN);
-
-
+trainNN( n_epochs, alpha, initPath, trainPath, outPath );

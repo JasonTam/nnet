@@ -1,26 +1,12 @@
 % Jason Tam
+% Testing script
 
-nnPath = './lol.txt';
-testPath = './data/WDBC/wdbc.test';
+% testPath = './data/WDBC/wdbc.test';
 
-NN = parseNN(nnPath);
-test = parseFeatures(testPath);
+nnPath = './myOut/trainedNN_grades.txt';
+testPath = './data/grades/grades.test';
+outPath = './myOut/results_grades.txt';
 
-results = fwdProp(test,NN);
+testNN( nnPath, testPath, outPath )
 
-% Performance Metrics
-order = [1;0];
-conf = confusionmat(results,test.targets,'order',order);
-
-acc = sum(diag(conf))/(sum(conf(:)));
-prec = diag(conf)./sum(conf,2);
-recall = diag(conf)./sum(conf,1)';
-F1 = (2*prec.*recall)./(prec+recall);
-
-
-
-
-% 
-% writeResultstoFile('./lol.txt',NN);
-% 
 

@@ -13,7 +13,7 @@ g_p = @(x) g(x).*(1-g(x));
 % Initialize weights
 % (Skipping this because W is already initialized)
 a = cell(1,L); in = cell(1,L);
-obs = zeros([data.n(1),1]);
+obs = zeros([data.n(1),data.n(end)]);
 for e = 1:data.n(1) % for each training example
    a{1} = data.features(e,:)';     % Input Features
    for l = 2:L        
@@ -21,7 +21,7 @@ for e = 1:data.n(1) % for each training example
        a{l} = g(in{l});
    end
 
-   obs(e) = round(a{end});
+   obs(e,:) = round(a{end});
    
 end
 
