@@ -1,9 +1,13 @@
 % Jason Tam
 
-initPath = './data/WDBC/sample.NNWDBC.init';
-trainPath = './data/WDBC/wdbc.train';
+% initPath = './data/WDBC/sample.NNWDBC.init';
+% trainPath = './data/WDBC/wdbc.train';
+initPath = './data/grades/sample.NNWDBC.init';
+trainPath = './data/gra/wdbc.train';
 
-init = parseIni(initPath);
+
+
+init = parseNN(initPath);
 train = parseTrain(trainPath);
 
 n_epochs = 100;
