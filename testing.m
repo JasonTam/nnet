@@ -1,15 +1,26 @@
 % Jason Tam
 
 nnPath = './lol.txt';
-testPath = './data/WDBC/wdbc.train';
+testPath = './data/WDBC/wdbc.test';
 
 NN = parseNN(nnPath);
-test = parseTest(trainPath);
+test = parseFeatures(testPath);
 
-n_epochs = 100;
-alpha = 0.1;
-NN = backPropLearn(init,train,n_epochs,alpha);
+results = fwdProp(test,NN);
 
-writeResultstoFile('./lol.txt',NN);
+% Performance Metrics
+order = [1;0];
+conf = confusionmat(results,test.targets,'order',order);
 
+acc = sum(diag(conf))/(sum(conf(:)));
+prec = diag(conf)./sum(conf,2);
+recall = diag(conf)./sum(conf,1)';
+F1 = (2*prec.*recall)./(prec+recall);
+
+
+
+
+% 
+% writeResultstoFile('./lol.txt',NN);
+% 
 

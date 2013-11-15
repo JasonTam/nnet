@@ -1,5 +1,5 @@
 
-function train = parseTrain(fPath)
+function train = parseFeatures(fPath)
 % Parses a training file for 
 % The number of training examples, N_i, and N_o
 % [Feature vector Output]
