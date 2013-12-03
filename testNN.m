@@ -22,6 +22,7 @@ for ii = 1:size(results,2)
     confs(:,:,ii) = conf;
     m(ii,:) = metrics(conf);
 end
+    m(isnan(m)) = 0;    % If there is a nan, just make it 0
 
 micro = metrics(sum(confs,3));
 macro = mean(m); macro(:,4) = F1(macro(2),macro(3));
