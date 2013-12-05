@@ -21,6 +21,16 @@ Initialization
 ----------------
 Initial weights for the neural network were generated using the `rand` function, which generated uniformly distributed pseudo-random numbers on the open interval (0,1).
 
+Example Files
+-------------
+
+* ./myData/prostate/prostate.train
+* ./myData/prostate/prostate.test
+* ./myData/prostate/NNProstate.init
+* ./myOut/NNProstate.trained
+* ./myOut/results_prostate.txt
+  
+
 Parameters
 ---------------
 The parameters that I personally used for this data-set are as follows:
